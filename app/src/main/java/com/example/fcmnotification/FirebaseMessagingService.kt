@@ -22,6 +22,7 @@ class FirebaseMessagingService : FirebaseMessagingService() {
     private var SOUND_URI: Uri? = null
     private var channelId: String? = null
 
+
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         if (remoteMessage.notification != null) {
             sendMyNotification(remoteMessage)
