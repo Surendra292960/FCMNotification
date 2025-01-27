@@ -48,7 +48,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         } else {
             Log.w("TAG", "token should not be null...")
         }
-    }.addOnFailureListener { e: Exception? -> }.addOnCanceledListener {}
+    }.addOnFailureListener { e: Exception ->
+        Log.d("TAG", "Greeting: ${e.message}")
+    }.addOnCanceledListener {}
         .addOnCompleteListener { task: Task<String> ->
             Log.v(
                 "TAG",

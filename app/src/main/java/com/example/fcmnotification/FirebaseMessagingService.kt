@@ -9,10 +9,10 @@ import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-
 
 class FirebaseMessagingService : FirebaseMessagingService() {
     // Should not change the channel ID's
@@ -28,10 +28,15 @@ class FirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
+        Log.d("TAG", "onNewToken: $token")
+    }
+
     private fun sendMyNotification(message: RemoteMessage) {
         // The notification sound is based on the channel id. So it is mandatory to sent channel id from backend
 
-        if (message.notification!!.channelId == NOTIFICATION_EMERGENCY_CHANNEL_ID) {
+        if (message.notification?.channelId == NOTIFICATION_EMERGENCY_CHANNEL_ID) {
             channelId = NOTIFICATION_EMERGENCY_CHANNEL_ID
             SOUND_URI = Uri.parse("android.resource://" + applicationContext.packageName + "/" + R.raw.sapna_choudhary_ringtone)
         } else {
@@ -41,14 +46,13 @@ class FirebaseMessagingService : FirebaseMessagingService() {
 
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent,
-            PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
 
 
         val notificationBuilder: NotificationCompat.Builder = NotificationCompat.Builder(this, channelId!!)
             .setSmallIcon(R.drawable.ic_launcher_background)
-            .setContentTitle(if (message.notification!!.title == null) resources.getString(R.string.app_name) else message.notification!!.title)
-            .setContentText(if (message.notification!!.body == null) "" else message.notification!!.body)
+            .setContentTitle(if (message.notification?.title == null) resources.getString(R.string.app_name) else message.notification!!.title)
+            .setContentText(if (message.notification?.body == null) "" else message.notification!!.body)
             .setAutoCancel(true)
             .setSound(SOUND_URI)
             .setVibrate(DEFAULT_VIBRATE_PATTERN)
@@ -66,11 +70,7 @@ class FirebaseMessagingService : FirebaseMessagingService() {
                     .build()
 
                 // Creating Channel
-                val notificationChannel = NotificationChannel(
-                    channelId,
-                    "Testing_Audio",
-                    NotificationManager.IMPORTANCE_HIGH
-                )
+                val notificationChannel = NotificationChannel(channelId, "Testing_Audio", NotificationManager.IMPORTANCE_HIGH)
                 notificationChannel.setSound(SOUND_URI, audioAttributes)
                 notificationChannel.vibrationPattern = DEFAULT_VIBRATE_PATTERN
                 notificationChannel.enableLights(true)
