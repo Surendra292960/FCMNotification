@@ -10,15 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Run lint
-        run: ./gradlew lintDebug
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-      - name: Upload html test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: html.index
-          path: app/build/reports/lint-results-debug.html
-
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build
+          echo test, and deploy your project.
