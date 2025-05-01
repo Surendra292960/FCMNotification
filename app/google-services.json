@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713232632232",
+    "project_id": "fcmnotification-858b8",
+    "storage_bucket": "fcmnotification-858b8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713232632232:android:26af6b5b9a1d0a5ef5b59d",
+        "android_client_info": {
+          "package_name": "com.example.fcmnotification"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDPWA8SAx36QTC3kqyAm_5T4Uaiwt8glo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
