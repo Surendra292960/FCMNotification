@@ -22,5 +22,3 @@ jobs:
           name: html.index
           path: app/build/reports/lint-results-debug.html
 
-
-
