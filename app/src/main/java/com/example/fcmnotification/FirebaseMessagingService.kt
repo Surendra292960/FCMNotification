@@ -13,6 +13,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import androidx.core.net.toUri
 
 class FirebaseMessagingService : FirebaseMessagingService() {
     // Should not change the channel ID's
@@ -38,7 +39,7 @@ class FirebaseMessagingService : FirebaseMessagingService() {
 
         if (message.notification?.channelId == NOTIFICATION_EMERGENCY_CHANNEL_ID) {
             channelId = NOTIFICATION_EMERGENCY_CHANNEL_ID
-            SOUND_URI = Uri.parse("android.resource://" + applicationContext.packageName + "/" + R.raw.sapna_choudhary_ringtone)
+            SOUND_URI = ("android.resource://" + applicationContext.packageName + "/" + R.raw.sapna_choudhary_ringtone).toUri()
         } else {
             channelId = NOTIFICATION_DEFAULT_CHANNEL_ID
             SOUND_URI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
