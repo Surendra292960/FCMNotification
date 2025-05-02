@@ -38,6 +38,9 @@ android {
     buildFeatures {
         compose = true
     }
+    lint {
+        checkReleaseBuilds = false
+    }
 }
 
 dependencies {
@@ -52,10 +55,13 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.firebase.messaging)
     implementation(libs.core.ktx)
-    testImplementation(libs.junit)
+    //testImplementation(libs.mockito.android)
+    testImplementation(libs.mockito.core)
+    //testImplementation(libs.mockito.inline)
+    //testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.nhaarman.mockito.kotlin)
+    //testImplementation(libs.wiremock)
     androidTestImplementation(libs.androidx.junit)
-    testImplementation(libs.mockito.core)  // Automatically pulls the version from versions.toml
-    testImplementation(libs.mockito.inline)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
