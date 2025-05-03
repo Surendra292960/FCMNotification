@@ -28,7 +28,6 @@ class CalculatorTest {
         verify(mockMathOperations).add(a, b)
     }
 
-
     @Test
     fun `given valid input when subtract should call subtract operator`() {
         val a = 30
