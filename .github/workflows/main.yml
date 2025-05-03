@@ -85,7 +85,7 @@ jobs:
           distribution: 'temurin'
 
       - name: SonarCloud Scan
-        uses: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
