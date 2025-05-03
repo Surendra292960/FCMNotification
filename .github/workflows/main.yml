@@ -89,7 +89,7 @@ jobs:
 
 
   package:
-    needs: [ static-code-analysis ]
+    needs: [static-code-analysis]
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
