@@ -1,18 +1,19 @@
 [versions]
-agp = "8.8.2"
+agp = "8.6.0"
 kotlin = "2.0.0"
-coreKtx = "1.16.0"
+coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 kotlinTestJunit = "1.8.0"
+uiTestJunit4 = "1.8.0"
 mockito = "5.11.0"
 mockito-kotlin = "4.0.0"
 nhaarman-mockito-kotlin = "2.2.0"
 wiremock = "2.27.2"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
-composeBom = "2025.03.01"
+composeBom = "2024.02.00"
 googleGmsGoogleServices = "4.4.2"
 firebaseMessaging = "24.1.1"
 coreKtxVersion = "1.6.1"
@@ -25,7 +26,8 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-compose-ui-test-junit = { group = "androidx.compose.ui", name = "ui-test-junit" }
+androidx-compose-ui-test-junit = { group = "androidx.compose.ui", name = "ui-test-junit", version.ref = "composeBom" }
+androidx-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
 
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
