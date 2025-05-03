@@ -87,28 +87,25 @@ jobs:
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  package:  # 🔽 Defined AFTER static-code-analysis
-    needs: [static-code-analysis]  # ✅ Now recognizes the job
+
+  package:
+    needs: [ static-code-analysis ]
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
-      - name: Grant execute permission to gradlew
-        run: chmod +x gradlew
-
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          java-version: 21
-          distribution: temurin  # Add distribution
+          java-version: 1.8
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v2
         with:
-          name: fcm_notification.apk
+          name: expense-manager.apk
           path: app/build/outputs/apk/debug/app-debug.apk
