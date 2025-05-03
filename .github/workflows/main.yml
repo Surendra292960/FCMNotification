@@ -76,10 +76,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Use v4
 
-      - name: Grant gradlew execute permission
-        run: chmod +x gradlew
+      - name: Grant execute permission to gradlew
+        run: chmod +x gradlew  # Fixes "Permission denied"
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -90,4 +90,4 @@ jobs:
       - name: SonarCloud Scan
         run: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # For PR analysis
