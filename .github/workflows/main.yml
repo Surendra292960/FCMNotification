@@ -7,18 +7,34 @@ on:
   workflow_dispatch:
 
 jobs:
+  # Add a starter job with no dependencies (e.g., lint)
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Lint
+        run: ./gradlew lintDebug
+
+  # Other jobs can depend on the starter job
+  static-code-analysis:
+    needs: [lint]  # Depends on the starter job
+    runs-on: ubuntu-latest
+
   package:
-    needs: [ static-code-analysis ]
+    needs: [static-code-analysis]  # Now valid
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  # Use v4
 
-      - name: set up JDK 21
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: 21
+          distribution: temurin  # Required for stability
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace
