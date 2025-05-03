@@ -82,8 +82,10 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '21'
+          distribution: 'temurin'
 
       - name: SonarCloud Scan
-        uses: ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        uses: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
