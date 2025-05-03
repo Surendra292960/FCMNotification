@@ -1,9 +1,11 @@
 package com.example.fcmnotification.calculator
 
+import org.junit.Before
+import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Before
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
+import kotlin.test.Test
 
 @RunWith(MockitoJUnitRunner::class)
 class CalculatorTest {
