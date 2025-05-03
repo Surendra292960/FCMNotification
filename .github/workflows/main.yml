@@ -78,6 +78,9 @@ jobs:
       - name: Check the code
         uses: actions/checkout@v2
 
+      - name: Grant execute permission to gradlew  # 🔑 Fix permission issue
+        run: chmod +x gradlew
+
       - name: set up JDK 21
         uses: actions/setup-java@v4
         with:
