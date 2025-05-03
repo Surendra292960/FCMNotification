@@ -87,8 +87,8 @@ jobs:
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  package:
-    needs: [static-code-analysis]
+  package:  # 🔽 Defined AFTER static-code-analysis
+    needs: [static-code-analysis]  # ✅ Now recognizes the job
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
@@ -102,6 +102,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 21
+          distribution: temurin  # Add distribution
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace
