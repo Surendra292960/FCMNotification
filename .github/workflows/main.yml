@@ -21,6 +21,9 @@ jobs:
   static-code-analysis:
     needs: [lint]  # Depends on the starter job
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4  # Use v4
 
   package:
     needs: [static-code-analysis]  # Now valid
