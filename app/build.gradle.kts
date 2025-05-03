@@ -64,9 +64,10 @@ dependencies {
     //testImplementation(libs.wiremock)
     testImplementation(libs.kotlin.test.junit)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.ui.test.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit5)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
