@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".FirebaseMessagingService"
+            android:name=".fcm.FirebaseMessagingService"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>

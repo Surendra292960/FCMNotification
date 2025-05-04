@@ -44,6 +44,7 @@ jobs:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest
 
+
   #  instrumentation-test:
   #    needs: [unit-test]
   #    runs-on: ubuntu-latest
@@ -93,7 +94,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v4  # Use v4
+        uses: actions/checkout@v4
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
@@ -102,7 +103,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 21
-          distribution: temurin  # Required for stability
+          distribution: temurin
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace

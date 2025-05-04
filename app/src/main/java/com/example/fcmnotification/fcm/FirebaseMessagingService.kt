@@ -1,4 +1,4 @@
-package com.example.fcmnotification;
+package com.example.fcmnotification.fcm;
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -14,6 +14,8 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import androidx.core.net.toUri
+import com.example.fcmnotification.MainActivity
+import com.example.fcmnotification.R
 
 class FirebaseMessagingService : FirebaseMessagingService() {
     // Should not change the channel ID's
@@ -34,7 +36,7 @@ class FirebaseMessagingService : FirebaseMessagingService() {
         Log.d("TAG", "onNewToken: $token")
     }
 
-    private fun sendMyNotification(message: RemoteMessage) {
+    fun sendMyNotification(message: RemoteMessage) {
         // The notification sound is based on the channel id. So it is mandatory to sent channel id from backend
 
         if (message.notification?.channelId == NOTIFICATION_EMERGENCY_CHANNEL_ID) {
