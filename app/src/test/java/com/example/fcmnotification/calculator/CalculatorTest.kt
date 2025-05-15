@@ -21,7 +21,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun `given valid input when add should call add operator`() {
+    fun given_valid_input_when_add_should_call_add_operator() {
         val a = 10
         val b = 20
         calculator.addTwoNumbers(a, b)
@@ -29,7 +29,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun `given valid input when subtract should call subtract operator`() {
+    fun given_valid_input_when_subtract_should_call_subtract_operator() {
         val a = 30
         val b = 10
         calculator.subtractTwoNumbers(a, b)
@@ -37,7 +37,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun `given valid input when multiply should call multiply operator`() {
+    fun given_valid_input_when_multiply_should_call_multiply_operator() {
         val a = 5
         val b = 4
         calculator.multiplyTwoNumbers(a, b)
@@ -45,7 +45,7 @@ class CalculatorTest {
     }
 
     @Test
-    fun `given valid input when divide should call divide operator`() {
+    fun given_valid_input_when_divide_should_call_divide_operator() {
         val a = 20
         val b = 5
         calculator.divideTwoNumbers(a, b)
