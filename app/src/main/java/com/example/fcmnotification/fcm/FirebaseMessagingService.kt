@@ -16,7 +16,7 @@ import com.google.firebase.messaging.RemoteMessage
 import androidx.core.net.toUri
 import com.example.fcmnotification.MainActivity
 import com.example.fcmnotification.R
-
+//FirebaseMessagingService class is used to receive messages from the Firebase Cloud Messaging (FCM) service
 class FirebaseMessagingService : FirebaseMessagingService() {
     // Should not change the channel ID's
     private val NOTIFICATION_EMERGENCY_CHANNEL_ID = "1101"
